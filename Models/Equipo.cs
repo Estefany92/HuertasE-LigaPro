@@ -22,9 +22,14 @@ namespace HuertasE_LigaPro.Models
         public int PartidosEmpatados { get; set; }
         [Range(0, 20)]
         public int PartidosPerdidos { get; set; }
-        public int Totalpuntos { 
-            get;
-            set; }
+        public int Totalpuntos 
+        {
+            get
+            {
+                int total_puntos = PartidosGanados * 3 + PartidosEmpatados;
+                return total_puntos;
+            }
+        }
     }
 
 }
