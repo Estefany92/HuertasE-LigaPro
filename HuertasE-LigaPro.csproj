@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Imagenes\L1.jpg" />
+    <None Include="wwwroot\Imagenes\L2.jpg" />
+    <None Include="wwwroot\Imagenes\L3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 

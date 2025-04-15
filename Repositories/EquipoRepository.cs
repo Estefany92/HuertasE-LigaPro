@@ -14,7 +14,7 @@ namespace HuertasE_LigaPro.Repositories
                 PartidosJugados = 10,
                 PartidosGanados = 10,
                 PartidosEmpatados = 0,
-                PartidosPerdidos = 0,
+                PartidosPerdidos = 0
                 
             };
 
@@ -25,7 +25,7 @@ namespace HuertasE_LigaPro.Repositories
                 PartidosJugados = 10,
                 PartidosGanados = 1,
                 PartidosEmpatados = 0,
-                PartidosPerdidos = 9,
+                PartidosPerdidos = 9
                 
             };
 
