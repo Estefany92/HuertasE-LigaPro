@@ -1,0 +1,51 @@
+﻿
+
+@model HuertasE_LigaPro.Models.Equipo
+<hr />
+<div class="row">
+
+    <div class="col-md-8">
+        
+        <h2>@Model.Nombre</h2>
+
+        <!-- Se uso IA CHATGPT Para la linea 12 y 39 en inamegnes ademas una investigacion para la logica de IF  -->
+        <img src="@Url.Content(Model.Id == 1 ? "~/imagenes/L3.jpg" : "~/imagenes/L2.jpg")" class="img-fluid rounded mb-4" alt="Imagen del equipo" />
+
+        
+        <p>
+            @if (Model.Id == 1)
+            {
+                <text>Liga Deportiva Universitaria de Quito es uno de los clubes más importantes de Ecuador, con múltiples títulos nacionales e internacionales.</text>
+            }
+            else if (Model.Id == 2)
+            {
+                <text>Barcelona Sporting Club, fundado en Guayaquil, es un ícono del fútbol ecuatoriano, reconocido por su gran hinchada y trayectoria.</text>
+            }
+        </p>
+
+        <h4>Estadísticas:</h4>
+        <ul>
+            <li><strong>Partidos jugados:</strong> @Model.PartidosJugados</li>
+            <li><strong>Partidos ganados:</strong> @Model.PartidosGanados</li>
+            <li><strong>Partidos empatados:</strong> @Model.PartidosEmpatados</li>
+            <li><strong>Partidos perdidos:</strong> @Model.PartidosPerdidos</li>
+            <li><strong>Total de puntos:</strong> @Model.Totalpuntos</li>
+        </ul>
+    </div>
+
+    
+    <div class="col-md-4 text-end">
+        <img src="@Url.Content(Model.Id == 1 ? "~/imagenes/logoLDU.jpg" : "~/imagenes/LBSC.jpg")" class="img-thumbnail" style="max-width: 150px;" alt="Logo del equipo" />
+    </div>
+</div>
+
+
+
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -3,9 +3,17 @@
 namespace HuertasE_LigaPro.Repositories
 {
     public class EquipoRepository
+
     {
+        //lista estatica para que se mantengan los datos incluso si se cierra o actualiza todo
+        private static List<Equipo> _equipos;
+
         public IEnumerable<Equipo> DevuelveListadoEquipos()
         {
+
+            if (_equipos != null)
+                return _equipos.OrderBy(e => e.Totalpuntos).ToList();
+
             List<Equipo> equipos = new List<Equipo>();
             Equipo ldu = new Equipo
             {
@@ -32,9 +40,9 @@ namespace HuertasE_LigaPro.Repositories
             equipos.Add(ldu);
             equipos.Add(bsc);
 
-            equipos = equipos.OrderBy(item => item.Totalpuntos).ToList();
+            _equipos = equipos;
 
-            return equipos;
+            return _equipos.OrderBy(e => e.Totalpuntos).ToList();
 
         }
         public Equipo DevuelveInformacionEquipo(int Id)
@@ -48,8 +56,17 @@ namespace HuertasE_LigaPro.Repositories
 
         public bool ActualizarEquipo(Equipo equipo)
         {
-            //Logica para actualizar
-            return true;
+            var index = _equipos.FindIndex(e => e.Id == equipo.Id);
+            if (index != -1)
+            {
+                _equipos[index].Nombre = equipo.Nombre;
+                _equipos[index].PartidosJugados = equipo.PartidosJugados;
+                _equipos[index].PartidosGanados = equipo.PartidosGanados;
+                _equipos[index].PartidosEmpatados = equipo.PartidosEmpatados;
+                _equipos[index].PartidosPerdidos = equipo.PartidosPerdidos;
+                return true;
+            }
+            return false;
         }
     }
 }

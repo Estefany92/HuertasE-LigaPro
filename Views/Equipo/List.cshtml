@@ -55,8 +55,8 @@
                 @Html.DisplayFor(modelItem => item.Totalpuntos)
             </td>
             <td>
-                    @Html.ActionLink("Edit", "EditarEquipo", new {id=item.Id  },new{ @class = "btn btn-success"})|
-                    @Html.ActionLink("Ver Informacion Equipo", "Details", new { },new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Edit", "EditarEquipo",  new {id=item.Id  },new{ @class = "btn btn-success"})|
+                    @Html.ActionLink("Ver Informacion Equipo", "DetalleEquipo", "Equipo", new { id = item.Id }, new { @class = "btn btn-info" }) |
                     @Html.ActionLink("Delete", "Delete", new { }, new { @class = "btn btn-danger" })
             </td>
         </tr>

@@ -2,9 +2,28 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    .title {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #3498db; /* stilo hecho con IA */
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+        margin-top: 50px;
+    }
+</style>
+
 <div class="text-center">
-    <h1 class="display-4">Liga Pro Ecuador</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 title">Liga Pro Ecuador</h1>
+   
+</div>
+
+
+        <style>
+            body {
+                background-image: url('@Url.Content("~/imagenes/balones.png")');
+            }
+        </style>
+
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">

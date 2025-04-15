@@ -6,7 +6,8 @@ namespace HuertasE_LigaPro.Controllers
 {
     public class EquipoController : Controller
     {
-        public EquipoRepository _repository;
+        //lo cambia privado para que solo lo vea el programador y mejorar
+        private readonly EquipoRepository _repository;
         public EquipoController()
         {
             _repository = new EquipoRepository();
@@ -18,6 +19,7 @@ namespace HuertasE_LigaPro.Controllers
            return View(equipos);
         }
 
+        [HttpGet]
         public IActionResult EditarEquipo(int Id)
         {
             
@@ -28,15 +30,20 @@ namespace HuertasE_LigaPro.Controllers
         [HttpPost]
         public IActionResult EditarEquipo(Equipo equipo)
         {
-            try
+            var actualizado = _repository.ActualizarEquipo(equipo);
+            if (actualizado)
             {
-                var actualizar = _repository.ActualizarEquipo(equipo);
-                return View();
+                return RedirectToAction("List");
             }
-            catch (Exception e)
-            {
-                throw;
-            }
+            return View(equipo);
         }
+
+
+        public IActionResult DetalleEquipo(int id)
+        {
+            var equipo = _repository.DevuelveInformacionEquipo(id);
+            return View(equipo); 
+        }
+
     }
 }
