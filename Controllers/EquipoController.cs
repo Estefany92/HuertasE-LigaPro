@@ -28,12 +28,12 @@ namespace HuertasE_LigaPro.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditarEquipo(Equipo equipo)
+        public IActionResult EditarEquipoP(Equipo equipo)
         {
             var actualizado = _repository.ActualizarEquipo(equipo);
             if (actualizado)
             {
-                return RedirectToAction("List");
+                return RedirectToAction("EditarEquipo");
             }
             return View(equipo);
         }
